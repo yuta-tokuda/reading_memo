@@ -8,8 +8,8 @@ default: &default
 
 development:
   <<: *default
-  database: book_memo_development
+  database: reading_memo_development
 
 production:
   <<: *default
-  database: book_memo_pro
+  database: reading_memo_pro
