@@ -1,0 +1,17 @@
+- url = @book.new_record? ? create_new_books_url : book_url
+- submit_name = @book.new_record? ? t('view.new') : t('view.update')
+
+= form_with model: @book, url: url, local: true do |f|
+  div.form-group
+    label.control-label.mr5 = t('activerecord.attributes.book.title')
+    br
+    = f.text_field :title
+
+  div.form-group
+    label.control-label.mr5 = t('activerecord.attributes.book.author')
+    br
+    = f.text_field :author
+
+  = submit_tag submit_name, class: 'btn btn-success mr5 float-left'
+  - unless @book.new_record?
+    = link_to t('view.destroy'), book_url(@book), class: 'btn btn-danger float-left', method: :delete, data: { confirm: t('helpers.delete_confirm') }

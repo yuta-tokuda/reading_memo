@@ -17,7 +17,7 @@ html
     = render 'layouts/header'
 
     body
-      .container_div style='margin: 0px 15px;'
+      .container_div style='margin: 0px 50px;'
         - flash.each do |key, value|
           - status = key == 'notice' ? 'success' : 'danger'
           = content_tag(:div, class: "alert alert-#{ status } flash-span") do
