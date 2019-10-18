@@ -1,7 +1,22 @@
-h3 = "#{ t('view.book') }#{ t('view.index') }"
+h3
+  span.mr5 = "#{ t('view.book') }#{ t('view.index') }"
+  span.badge = "#{ @books.size }件"
 
-= link_to(new_book_path,
+div.mb20
+  span.mr10 検索項目
+  = link_to(new_book_path,
           class: 'label label-info',
           style: 'padding: 7px !important; font-weight: normal; !important; font-size: 11px;') do
-  span.glyphicon.glyphicon-plus
-  span = t('view.add')
+    span.glyphicon.glyphicon-plus
+    span = t('view.add')
+
+table.table.table-hover style='font-size: 12px !important;'
+  thead
+    tr
+      th = t('activerecord.attributes.book.title')
+      th = t('activerecord.attributes.book.author')
+  tbody
+    - @books.each do |book|
+      tr
+        td = link_to book.title, book_path(book)
+        td = book.author
