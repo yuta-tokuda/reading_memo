@@ -3,10 +3,7 @@ h3
   span.badge = "#{ @books.size }件"
 
 div.mb20
-  span.mr10 検索項目
-  = link_to(new_book_path,
-          class: 'label label-info',
-          style: 'padding: 7px !important; font-weight: normal; !important; font-size: 11px;') do
+  = link_to(new_book_path, class: 'btn btn-info') do
     span.glyphicon.glyphicon-plus
     span = t('view.add')
 

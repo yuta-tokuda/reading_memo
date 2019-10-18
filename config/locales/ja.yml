@@ -151,6 +151,7 @@ ja:
   helpers:
     select:
       prompt: 選択してください
+    delete_confirm: 削除してもよろしいですか？
     submit:
       create: 登録する
       submit: 保存する
