@@ -5,19 +5,19 @@ html
     meta http-equiv='X-UA-Compatible' content='IE=Edge,chrome=1'
     meta http-equiv='content-language' content='ja'
     meta name="viewport" content="width=device-width, initial-scale=1.0"
-    title ReadingMemo
+    title Reading-Memo
     = csrf_meta_tags
 
-    = stylesheet_link_tag    'application', media: 'all'
+    = stylesheet_link_tag  'application', media: 'all'
     = include_gon
     = javascript_include_tag 'application'
-    /= render_lazybox
+    = render_lazybox
 
     div
-    /= render 'layouts/header'
+    = render 'layouts/header'
 
     body
-      .container_div
+      .container_div style='margin: 0px 15px;'
         - flash.each do |key, value|
           - status = key == 'notice' ? 'success' : 'danger'
           = content_tag(:div, class: "alert alert-#{ status } flash-span") do
