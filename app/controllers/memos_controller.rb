@@ -1,43 +1,45 @@
-class BookMemosController < ApplicationController
+class MemosController < ApplicationController
   def index
-    @book_memos = BookMemo.includes(:book).all
+    @memos = Memo.includes(:book).all
   end
 
   def show
-    @book_memo = BookMemo.find(params[:id])
+    @memo = Memo.find(params[:id])
   end
 
   def new
-    @book_memo = BookMemo.new
+    @memo = Memo.new
     @books_select = Book.all.collect { |b| [b.title, b.id] }
   end
 
   def create
-    @book_memo = BookMemo.new(permit_params)
-    @book_memo.save!
+    @memo = Memo.new(permit_params)
+    @memo.save!
     flash[:notice] = 'メモを登録しました。'
-    redirect_to action: :show, id: @book_memo.id
+    redirect_to action: :show, id: @memo.id
   rescue ActiveRecord::RecordInvalid
+    @books_select = Book.all.collect { |b| [b.title, b.id] }
     render :new
   end
 
   def update
-    @book_memo = BookMemo.find(params[:id])
-    @book_memo.update!(permit_params)
+    @memo = Memo.find(params[:id])
+    @memo.update!(permit_params)
     flash[:notice] = 'メモを更新しました。'
-    redirect_to action: :show, id: @book_memo.id
+    redirect_to action: :show, id: @memo.id
   rescue ActiveRecord::RecordInvalid
+    @books_select = Book.all.collect { |b| [b.title, b.id] }
     render :edit
   end
 
   def edit
-    @book_memo = BookMemo.find(params[:id])
+    @memo = Memo.find(params[:id])
     @books_select = Book.all.collect { |b| [b.title, b.id] }
   end
 
   def destroy
-    @book_memo = BookMemo.find(params[:id])
-    @book_memo.destroy
+    @memo = Memo.find(params[:id])
+    @memo.destroy
     flash[:notice] = 'メモを削除しました。'
     redirect_to action: :index
   rescue ActiveRecord::RecordInvalid
@@ -47,6 +49,6 @@ class BookMemosController < ApplicationController
   private
 
   def permit_params
-    params.require(:book_memo).permit(:book_id, :title, :content)
+    params.require(:memo).permit(:book_id, :title, :content)
   end
 end

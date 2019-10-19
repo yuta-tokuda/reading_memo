@@ -8,10 +8,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :book_memos do
+  resources :memos do
     collection do
       match :index, via: %i[get post]
-      match 'create_new', to: 'book_meoms#create', via: 'post'
+      match 'create_new', to: 'memos#create', via: 'post'
     end
   end
 end

@@ -1,0 +1,22 @@
+- url = @memo.new_record? ? create_new_memos_url : memo_url
+- submit_name = @memo.new_record? ? t('view.new') : t('view.update')
+
+= form_with model: @memo, url: url, local: true do |f|
+  div.form-group
+    label.control-label.mr5 = t('activerecord.attributes.memo.book_id')
+    br
+    = f.select :book_id, options_for_select(@books_select, @memo.book_id), { include_blank: '通常メモ' }, class: 'classic'
+
+  div.form-group
+    label.control-label.mr5 = t('activerecord.attributes.memo.title')
+    br
+    = f.text_field :title
+
+  div.form-group
+    label.control-label.mr5 = t('activerecord.attributes.memo.content')
+    br
+    = f.text_area :content
+
+  = submit_tag submit_name, class: 'btn btn-success mr5 float-left'
+  - unless @memo.new_record?
+    = link_to t('view.destroy'), memo_url(@memo), class: 'btn btn-danger float-left', method: :delete, data: { confirm: t('helpers.delete_confirm') }

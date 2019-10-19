@@ -1,0 +1,21 @@
+h3
+  span.mr5 = "#{ t('view.memo') }#{ t('view.index') }"
+  span.badge = "#{ @memos.size }件"
+
+div.mb20
+  = link_to(new_memo_path, class: 'btn btn-info') do
+    span.glyphicon.glyphicon-plus
+    span = t('view.add')
+
+table.table.table-hover style='font-size: 12px !important;'
+  thead
+    tr
+      th = t('activerecord.attributes.memo.book_id')
+      th = t('activerecord.attributes.memo.title')
+      th = t('activerecord.attributes.memo.content')
+  tbody
+    - @memos.each do |memo|
+      tr
+        td = memo.book_title
+        td = link_to memo.title, memo_path(memo)
+        td = memo.content

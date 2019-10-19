@@ -2,5 +2,5 @@ class Book < ApplicationRecord
   validates :title, presence: true
   validates :author, presence: true
 
-  has_many :book_memos
+  has_many :memos
 end

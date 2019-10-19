@@ -1,7 +1,7 @@
 ja:
   activerecord:
     attributes:
-      book_memo:
+      memo:
         book_id: 本
         title: タイトル
         content: 内容

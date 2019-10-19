@@ -1,7 +1,7 @@
-class CreateBookMemos < ActiveRecord::Migration[5.2]
+class CreateMemos < ActiveRecord::Migration[5.2]
   def change
-    create_table :book_memos do |t|
-      t.references :book, null: false, comment: '本'
+    create_table :memos do |t|
+      t.references :book,              comment: '本'
       t.string :title,    null: false, comment: 'タイトル'
       t.string :content,  null: false, comment: '内容'
 
