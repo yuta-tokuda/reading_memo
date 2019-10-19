@@ -30,3 +30,5 @@ table.table.table-hover style='font-size: 12px !important;'
         td = memo.book_title || '通常メモ'
         td = link_to memo.title, memo_path(memo)
         td = memo.created_at.strftime('%Y/%m/%d %H:%M')
+
+= javascript_include_tag 'memos/list'

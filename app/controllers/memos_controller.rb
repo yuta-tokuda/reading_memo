@@ -1,7 +1,7 @@
 class MemosController < ApplicationController
   def index
-    @memos = Memo.includes(:book).all
     @memo_type = params[:memo_type] || 'all'
+    @memos = Memo.search_memo_type(@memo_type).includes(:book)
   end
 
   def show
