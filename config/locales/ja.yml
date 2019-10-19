@@ -17,6 +17,7 @@ ja:
     add: 登録
     index: 一覧
     book: 本
+    book_memo: メモ
   date:
     abbr_day_names:
     - 日
