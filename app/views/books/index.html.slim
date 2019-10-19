@@ -1,9 +1,7 @@
 h3
   span.mr5 = "#{ t('view.book') }#{ t('view.index') }"
-  span.badge = "#{ @books.size }件"
-
-div.mb20
-  = link_to(new_book_path, class: 'btn btn-info') do
+  span.badge.mr10 = "#{ @books.size }件"
+  = link_to(new_book_path, class: 'btn btn-info new-btn') do
     span.glyphicon.glyphicon-plus
     span = t('view.add')
 
