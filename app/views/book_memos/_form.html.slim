@@ -5,7 +5,7 @@
   div.form-group
     label.control-label.mr5 = t('activerecord.attributes.book_memo.book_id')
     br
-    = f.select :book_id, options_for_select(@books_select, @book_memo.book_id)
+    = f.select :book_id, options_for_select(@books_select, @book_memo.book_id), {}, class: 'classic'
 
   div.form-group
     label.control-label.mr5 = t('activerecord.attributes.book_memo.title')
