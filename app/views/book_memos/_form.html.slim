@@ -1,0 +1,22 @@
+- url = @book_memo.new_record? ? create_new_book_memos_url : book_memo_url
+- submit_name = @book_memo.new_record? ? t('view.new') : t('view.update')
+
+= form_with model: @book_memo, url: url, local: true do |f|
+  div.form-group
+    label.control-label.mr5 = t('activerecord.attributes.book_memo.book_id')
+    br
+    = f.select :book_id, options_for_select(@books_select, @book_memo.book_id)
+
+  div.form-group
+    label.control-label.mr5 = t('activerecord.attributes.book_memo.title')
+    br
+    = f.text_field :title
+
+  div.form-group
+    label.control-label.mr5 = t('activerecord.attributes.book_memo.content')
+    br
+    = f.text_area :content
+
+  = submit_tag submit_name, class: 'btn btn-success mr5 float-left'
+  - unless @book_memo.new_record?
+    = link_to t('view.destroy'), book_memo_url(@book_memo), class: 'btn btn-danger float-left', method: :delete, data: { confirm: t('helpers.delete_confirm') }

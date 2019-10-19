@@ -7,4 +7,11 @@ Rails.application.routes.draw do
       match 'create_new', to: 'books#create', via: 'post'
     end
   end
+
+  resources :book_memos do
+    collection do
+      match :index, via: %i[get post]
+      match 'create_new', to: 'book_meoms#create', via: 'post'
+    end
+  end
 end
