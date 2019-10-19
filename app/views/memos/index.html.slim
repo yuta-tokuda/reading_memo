@@ -12,8 +12,10 @@ table.table.table-hover style='font-size: 12px !important;'
     tr
       th = t('activerecord.attributes.memo.book_id')
       th = t('activerecord.attributes.memo.title')
+      th = t('view.created_at')
   tbody
     - @memos.each do |memo|
       tr
         td = memo.book_title || '通常メモ'
         td = link_to memo.title, memo_path(memo)
+        td = memo.created_at.strftime('%Y/%m/%d %H:%M')
