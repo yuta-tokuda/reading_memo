@@ -7,17 +7,22 @@ div.mb20
     span.glyphicon.glyphicon-plus
     span = t('view.add')
 
+table
+  thead
+    th.pb5.fs12 メモタイプ
+  tbody
+    td
+      = radio_button_tag :memo_type, :all, @memo_type == 'all', style: 'margin-right: 2px !important;'
+      label.mr5.fs11 for='memo_type_all' 全て
+      = radio_button_tag :memo_type, :book, @memo_type == 'book', style: 'margin-right: 2px !important;'
+      label.mr5.fs11 for='memo_type_book' 本
+      = radio_button_tag :memo_type, :normal, @memo_type == 'normal', style: 'margin-right: 2px !important;'
+      label.mr5.fs11 for='memo_type_normal' 通常
+
 table.table.table-hover style='font-size: 12px !important;'
   thead
     tr
-      th
-        span.mr15 = t('activerecord.attributes.memo.book_id')
-        = radio_button_tag :memo_type, :all, @memo_type == 'all', style: 'margin-right: 2px !important;'
-        label.mr5 for='memo_type_all' 全て
-        = radio_button_tag :memo_type, :book, @memo_type == 'book', style: 'margin-right: 2px !important;'
-        label.mr5 for='memo_type_book' 本
-        = radio_button_tag :memo_type, :normal, @memo_type == 'normal', style: 'margin-right: 2px !important;'
-        label.mr5 for='memo_type_normal' 通常
+      th = t('activerecord.attributes.memo.book_id')
       th = t('activerecord.attributes.memo.title')
       th = t('view.created_at')
   tbody
