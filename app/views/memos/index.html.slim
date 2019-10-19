@@ -1,23 +1,22 @@
 h3
   span.mr5 = "#{ t('view.memo') }#{ t('view.index') }"
-  span.badge = "#{ @memos.size }件"
-
-div.mb20
-  = link_to(new_memo_path, class: 'btn btn-info') do
+  span.badge.mr10 = "#{ @memos.size }件"
+  = link_to(new_memo_path, class: 'btn btn-info new-btn') do
     span.glyphicon.glyphicon-plus
     span = t('view.add')
 
-table
-  thead
-    th.pb5.fs12 メモタイプ
-  tbody
-    td
-      = radio_button_tag :memo_type, :all, @memo_type == 'all', style: 'margin-right: 2px !important;'
-      label.mr5.fs11 for='memo_type_all' 全て
-      = radio_button_tag :memo_type, :book, @memo_type == 'book', style: 'margin-right: 2px !important;'
-      label.mr5.fs11 for='memo_type_book' 本
-      = radio_button_tag :memo_type, :normal, @memo_type == 'normal', style: 'margin-right: 2px !important;'
-      label.mr5.fs11 for='memo_type_normal' 通常
+div.search-div.mb10
+  table.ml5
+    thead
+      th.pb5.fs12 メモタイプ
+    tbody
+      td
+        = radio_button_tag :memo_type, :all, @memo_type == 'all', style: 'margin-right: 2px !important;'
+        label.mr5.fs11 for='memo_type_all' 全て
+        = radio_button_tag :memo_type, :book, @memo_type == 'book', style: 'margin-right: 2px !important;'
+        label.mr5.fs11 for='memo_type_book' 本
+        = radio_button_tag :memo_type, :normal, @memo_type == 'normal', style: 'margin-right: 2px !important;'
+        label.mr5.fs11 for='memo_type_normal' 通常
 
 table.table.table-hover style='font-size: 12px !important;'
   thead
