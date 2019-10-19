@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_19_102934) do
+ActiveRecord::Schema.define(version: 2019_10_19_102935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_10_19_102934) do
   end
 
   create_table "memos", force: :cascade do |t|
-    t.bigint "book_id", comment: "本"
+    t.bigint "book_id", comment: "本id"
     t.string "title", null: false, comment: "タイトル"
     t.string "content", null: false, comment: "内容"
     t.datetime "created_at", null: false
