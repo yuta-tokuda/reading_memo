@@ -14,6 +14,7 @@
 //= require rails-ujs
 //= require activestorage
 //= common
+//= summernote_setting
 //= require jquery.turbolinks
 //= require bootstrap
 //= require codemirror
