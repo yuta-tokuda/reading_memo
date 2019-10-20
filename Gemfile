@@ -53,3 +53,8 @@ gem 'acts-as-taggable-on', '~> 6.0'
 gem 'jquery-ui-rails'
 
 gem 'gon'
+
+gem 'simple_form'
+gem 'summernote-rails'
+gem 'codemirror-rails'
+gem 'jquery-turbolinks'

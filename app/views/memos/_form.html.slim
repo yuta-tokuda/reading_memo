@@ -15,7 +15,7 @@
   div.form-group
     label.control-label.mr5 = t('activerecord.attributes.memo.content')
     br
-    = f.text_area :content
+    = f.text_area :content, class:'summernote'
 
   = submit_tag submit_name, class: 'btn btn-success mr5 float-left'
   - unless @memo.new_record?
