@@ -5,12 +5,12 @@
   div.form-group
     label.control-label.mr5 = t('activerecord.attributes.book.title')
     br
-    = f.text_field :title
+    = f.text_field :title, style: 'width: 100%;'
 
   div.form-group
     label.control-label.mr5 = t('activerecord.attributes.book.author')
     br
-    = f.text_field :author
+    = f.text_field :author, style: 'width: 100%;'
 
   = submit_tag submit_name, class: 'btn btn-success mr5 float-left'
   - unless @book.new_record?
