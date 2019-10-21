@@ -7,6 +7,12 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+  enums:
+    memo:
+      type:
+        book: 本
+        net: ネット
+        real: 日常
   view:
     title: Reading-Memo
     new: 作成

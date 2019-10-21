@@ -6,29 +6,43 @@ h3
     span = t('view.add')
 
 div.search-div.mb10
-  table.ml5
-    thead
-      th.pb5.fs12 メモタイプ
-    tbody
-      td
-        = radio_button_tag :memo_type, :all, @memo_type == 'all', style: 'margin-right: 2px !important;'
-        label.mr5.fs11 for='memo_type_all' 全て
-        = radio_button_tag :memo_type, :book, @memo_type == 'book', style: 'margin-right: 2px !important;'
-        label.mr5.fs11 for='memo_type_book' 本
-        = radio_button_tag :memo_type, :normal, @memo_type == 'normal', style: 'margin-right: 2px !important;'
-        label.mr5.fs11 for='memo_type_normal' 通常
+  = search_form_for @q, method: :post do |f|
+    table.ml5
+      thead
+        th.pb5.fs12 = t('activerecord.attributes.memo.type')
+      tbody
+        td
+          = radio_button_tag :search_memo_type, :all, params[:search_memo_type] == 'all', style: 'margin-right: 2px !important;', class: 'search_type_radio'
+          label.mr5.fs11 for='search_memo_type_all' 全て
+          = radio_button_tag :search_memo_type, :book, params[:search_memo_type] == 'book', style: 'margin-right: 2px !important;', class: 'search_type_radio'
+          label.mr5.fs11 for='search_memo_type_book' 本
+          = radio_button_tag :search_memo_type, :net, params[:search_memo_type] == 'net', style: 'margin-right: 2px !important;', class: 'search_type_radio'
+          label.mr5.fs11 for='search_memo_type_net' ネット
+          = radio_button_tag :search_memo_type, :real, params[:search_memo_type] == 'real', style: 'margin-right: 2px !important;', class: 'search_type_radio'
+          label.mr5.fs11 for='search_memo_type_real' 日常
+
+    = f.submit id: 'memos_submit', class: 'hidden'
 
 table.table.table-hover style='font-size: 11px !important;'
   thead
     tr
-      th = t('activerecord.attributes.memo.book_id')
+      th = t('activerecord.attributes.memo.type')
       th = t('activerecord.attributes.memo.title')
       th = t('view.created_at')
   tbody
     - @memos.each do |memo|
       tr
-        td = memo.book_title || '通常メモ'
+        td
+          - if memo.book_title
+            = link_to memo.book.title, book_url(memo.book)
+          - else
+            = memo.type_i18n
         td = link_to memo.title, memo_path(memo)
         td = memo.created_at.strftime('%Y/%m/%d %H:%M')
 
-= javascript_include_tag 'memos/list'
+javascript:
+  $(function() {
+    $('.search_type_radio').on('change', function(){
+      $('#memos_submit').click();
+    });
+  });

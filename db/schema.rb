@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_19_102935) do
+ActiveRecord::Schema.define(version: 2019_10_21_102933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_10_19_102935) do
     t.string "content", null: false, comment: "内容"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "type", null: false, comment: "種類"
     t.index ["book_id"], name: "index_memos_on_book_id"
   end
 

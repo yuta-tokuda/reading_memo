@@ -5,3 +5,4 @@ ja:
         book_id: 本
         title: タイトル
         content: 内容
+        type: 種類

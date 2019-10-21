@@ -58,3 +58,5 @@ gem 'simple_form'
 gem 'summernote-rails'
 gem 'codemirror-rails'
 gem 'jquery-turbolinks'
+
+gem 'enum_help'

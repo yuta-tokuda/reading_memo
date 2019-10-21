@@ -3,9 +3,10 @@
 
 = form_with model: @memo, url: url, local: true do |f|
   div.form-group
-    label.control-label.mr5 = t('activerecord.attributes.memo.book_id')
+    label.control-label.mr5 = t('activerecord.attributes.memo.type')
     br
-    = f.select :book_id, options_for_select(@books_select, @memo.book_id), { include_blank: '通常メモ' }, class: 'classic'
+    = f.select :type, options_for_select(memo_types_select, @memo.type), {}, class: 'classic mr10', id: 'type_select'
+    = f.select :book_id, options_for_select(books_select, @memo.book_id), {}, class: 'classic', id: 'book_select'
 
   div.form-group
     label.control-label.mr5 = t('activerecord.attributes.memo.title')
@@ -20,3 +21,18 @@
   = submit_tag submit_name, class: 'btn btn-success mr5 float-left'
   - unless @memo.new_record?
     = link_to t('view.destroy'), memo_url(@memo), class: 'btn btn-danger float-left', method: :delete, data: { confirm: t('helpers.delete_confirm') }
+
+javascript:
+  $(function() {
+    if($('#type_select').val() != 'book') {
+      $('#book_select').hide();
+    };
+
+    $('#type_select').change(function() {
+      if($(this).val() == 'book') {
+        $('#book_select').show();
+      } else {
+        $('#book_select').hide();
+      };
+    });
+  });

@@ -95,6 +95,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.8.0)
     eventmachine (1.2.7)
     execjs (2.7.0)
@@ -311,6 +313,7 @@ DEPENDENCIES
   codemirror-rails
   coffee-rails
   devise
+  enum_help
   font-awesome-sass (~> 5.8.1)
   gon
   jbuilder

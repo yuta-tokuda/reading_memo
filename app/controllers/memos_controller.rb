@@ -1,7 +1,7 @@
 class MemosController < ApplicationController
   def index
-    @memo_type = params[:memo_type] || 'all'
-    @memos = Memo.search_memo_type(@memo_type).includes(:book)
+    params[:search_memo_type] = 'all' unless params[:search_memo_type]
+    @memos = search_result
   end
 
   def show
@@ -10,7 +10,6 @@ class MemosController < ApplicationController
 
   def new
     @memo = Memo.new
-    @books_select = Book.all.collect { |b| [b.title, b.id] }
   end
 
   def create
@@ -19,7 +18,6 @@ class MemosController < ApplicationController
     flash[:notice] = 'メモを登録しました。'
     redirect_to action: :show, id: @memo.id
   rescue ActiveRecord::RecordInvalid
-    @books_select = Book.all.collect { |b| [b.title, b.id] }
     render :new
   end
 
@@ -29,13 +27,11 @@ class MemosController < ApplicationController
     flash[:notice] = 'メモを更新しました。'
     redirect_to action: :show, id: @memo.id
   rescue ActiveRecord::RecordInvalid
-    @books_select = Book.all.collect { |b| [b.title, b.id] }
     render :edit
   end
 
   def edit
     @memo = Memo.find(params[:id])
-    @books_select = Book.all.collect { |b| [b.title, b.id] }
   end
 
   def destroy
@@ -50,6 +46,12 @@ class MemosController < ApplicationController
   private
 
   def permit_params
-    params.require(:memo).permit(:book_id, :title, :content)
+    params.require(:memo).permit(:book_id, :title, :content, :type)
+  end
+
+  def search_result
+    memos = params[:search_memo_type] == 'all' ? Memo.all : Memo.where(type: params[:search_memo_type])
+    @q = memos.ransack(params[:q])
+    @q.result.includes(:book).order(created_at: :DESC)
   end
 end
