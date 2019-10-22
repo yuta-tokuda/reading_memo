@@ -60,3 +60,6 @@ gem 'codemirror-rails'
 gem 'jquery-turbolinks'
 
 gem 'enum_help'
+
+# デバイス判定
+gem 'browser'

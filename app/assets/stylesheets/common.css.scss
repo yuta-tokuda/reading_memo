@@ -85,3 +85,9 @@ select:-moz-focusring {
   border-top: solid 5px #5989cf;
   border-bottom: solid 5px #5989cf;
 }
+
+@media screen and (max-width: 479px) { /*ウィンドウ幅が最大479pxまでの場合に適用*/
+  #hoge {
+    display: none;
+  }
+}

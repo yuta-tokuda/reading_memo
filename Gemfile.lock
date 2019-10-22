@@ -60,6 +60,7 @@ GEM
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
+    browser (2.6.1)
     builder (3.2.3)
     bullet (6.0.2)
       activesupport (>= 3.0.0)
@@ -308,6 +309,7 @@ DEPENDENCIES
   acts-as-taggable-on (~> 6.0)
   annotate
   bootstrap-sass
+  browser
   bullet
   carrierwave
   codemirror-rails

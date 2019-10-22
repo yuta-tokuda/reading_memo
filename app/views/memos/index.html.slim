@@ -6,22 +6,7 @@ h3
     span = t('view.add')
 
 div.search-div.mb10
-  = search_form_for @q, method: :post do |f|
-    table.ml5
-      thead
-        th.pb5.fs12 = t('activerecord.attributes.memo.type')
-      tbody
-        td
-          = radio_button_tag :search_memo_type, :all, params[:search_memo_type] == 'all', style: 'margin-right: 2px !important;', class: 'search_type_radio'
-          label.mr5.fs11 for='search_memo_type_all' 全て
-          = radio_button_tag :search_memo_type, :book, params[:search_memo_type] == 'book', style: 'margin-right: 2px !important;', class: 'search_type_radio'
-          label.mr5.fs11 for='search_memo_type_book' 本
-          = radio_button_tag :search_memo_type, :net, params[:search_memo_type] == 'net', style: 'margin-right: 2px !important;', class: 'search_type_radio'
-          label.mr5.fs11 for='search_memo_type_net' ネット
-          = radio_button_tag :search_memo_type, :real, params[:search_memo_type] == 'real', style: 'margin-right: 2px !important;', class: 'search_type_radio'
-          label.mr5.fs11 for='search_memo_type_real' 日常
-
-    = f.submit id: 'memos_submit', class: 'hidden'
+  = render 'search_div'
 
 table.table.table-hover style='font-size: 11px !important;'
   thead

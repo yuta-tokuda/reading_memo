@@ -1,0 +1,37 @@
+= search_form_for @q, method: :post do |f|
+  - if browser.device.mobile?
+    table
+      tr
+        th.fs12.pa3 = t('activerecord.attributes.memo.type')
+        td.pa3
+          = radio_button_tag :search_memo_type, :all, params[:search_memo_type] == 'all', style: 'margin-right: 2px !important;', class: 'search_type_radio'
+          label.mr5.fs11 for='search_memo_type_all' 全て
+          = radio_button_tag :search_memo_type, :book, params[:search_memo_type] == 'book', style: 'margin-right: 2px !important;', class: 'search_type_radio'
+          label.mr5.fs11 for='search_memo_type_book' 本
+          = radio_button_tag :search_memo_type, :net, params[:search_memo_type] == 'net', style: 'margin-right: 2px !important;', class: 'search_type_radio'
+          label.mr5.fs11 for='search_memo_type_net' ネット
+          = radio_button_tag :search_memo_type, :real, params[:search_memo_type] == 'real', style: 'margin-right: 2px !important;', class: 'search_type_radio'
+          label.mr5.fs11 for='search_memo_type_real' 日常
+      tr
+        th.fs12.pa3 = t('activerecord.attributes.memo.content')
+        td.pa3
+          = f.text_field :content_cont, class: 'mr5'
+          = f.submit id: 'memos_submit'
+  - else
+    table.ml5
+      thead
+        th.pb5.fs12 = t('activerecord.attributes.memo.type')
+        th.pb5.fs12 = t('activerecord.attributes.memo.content')
+      tbody
+        td.pr10
+          = radio_button_tag :search_memo_type, :all, params[:search_memo_type] == 'all', style: 'margin-right: 2px !important;', class: 'search_type_radio'
+          label.mr5.fs11 for='search_memo_type_all' 全て
+          = radio_button_tag :search_memo_type, :book, params[:search_memo_type] == 'book', style: 'margin-right: 2px !important;', class: 'search_type_radio'
+          label.mr5.fs11 for='search_memo_type_book' 本
+          = radio_button_tag :search_memo_type, :net, params[:search_memo_type] == 'net', style: 'margin-right: 2px !important;', class: 'search_type_radio'
+          label.mr5.fs11 for='search_memo_type_net' ネット
+          = radio_button_tag :search_memo_type, :real, params[:search_memo_type] == 'real', style: 'margin-right: 2px !important;', class: 'search_type_radio'
+          label.mr5.fs11 for='search_memo_type_real' 日常
+        td
+          = f.text_field :content_cont, class: 'mr5'
+          = f.submit id: 'memos_submit'
