@@ -46,7 +46,7 @@ class MemosController < ApplicationController
   private
 
   def permit_params
-    params.require(:memo).permit(:book_id, :title, :content, :type)
+    params.require(:memo).permit(:book_id, :title, :content, :type, :abstraction)
   end
 
   def search_result

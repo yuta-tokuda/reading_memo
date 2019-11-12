@@ -18,6 +18,11 @@
     br
     = f.text_area :content, class:'summernote'
 
+  div.form-group
+    label.control-label.mr5 = t('activerecord.attributes.memo.abstraction')
+    br
+    = f.text_area :abstraction, class:'summernote'
+
   = submit_tag submit_name, class: 'btn btn-success mr5 float-left'
   - unless @memo.new_record?
     = link_to t('view.destroy'), memo_url(@memo), class: 'btn btn-danger float-left', method: :delete, data: { confirm: t('helpers.delete_confirm') }
