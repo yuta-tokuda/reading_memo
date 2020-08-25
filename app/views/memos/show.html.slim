@@ -4,9 +4,4 @@ h4 = t('activerecord.attributes.memo.content')
 div.mb10 style='padding: 10px; border: solid 3px #6091d3; border-radius: 10px;'
   = raw @memo.content
 
-- if @memo.abstraction.present?
-  h4 = t('activerecord.attributes.memo.abstraction')
-  div.mb10 style='padding: 10px; border: solid 3px #6091d3; border-radius: 10px;'
-    = raw @memo.abstraction
-
 = link_to t('view.edit'), edit_memo_path(@memo), class: 'btn btn-primary'
