@@ -13,6 +13,7 @@ ja:
         book: 本
         net: ネット
         real: 日常
+        technology: 技術
   view:
     title: Reading-Memo
     new: 作成

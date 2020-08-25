@@ -12,6 +12,8 @@
           label.mr5.fs11 for='search_memo_type_net' ネット
           = radio_button_tag :search_memo_type, :real, params[:search_memo_type] == 'real', style: 'margin-right: 2px !important;', class: 'search_type_radio'
           label.mr5.fs11 for='search_memo_type_real' 日常
+          = radio_button_tag :search_memo_type, :technology, params[:search_memo_type] == 'technology', style: 'margin-right: 2px !important;', class: 'search_type_radio'
+          label.mr5.fs11 for='search_memo_type_technology' 技術
       tr
         th.fs12.pa3 = t('activerecord.attributes.memo.content')
         td.pa3
@@ -32,6 +34,8 @@
           label.mr5.fs11 for='search_memo_type_net' ネット
           = radio_button_tag :search_memo_type, :real, params[:search_memo_type] == 'real', style: 'margin-right: 2px !important;', class: 'search_type_radio'
           label.mr5.fs11 for='search_memo_type_real' 日常
+          = radio_button_tag :search_memo_type, :technology, params[:search_memo_type] == 'technology', style: 'margin-right: 2px !important;', class: 'search_type_radio'
+          label.mr5.fs11 for='search_memo_type_technology' 技術
         td
           = f.text_field :content_cont, class: 'mr5'
           = f.submit id: 'memos_submit'

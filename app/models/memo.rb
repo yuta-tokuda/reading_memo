@@ -7,7 +7,7 @@ class Memo < ApplicationRecord
 
   delegate :title, to: :book, prefix: true, allow_nil: true
 
-  enum type: { book: 0, net: 1, real: 2 }
+  enum type: { book: 0, net: 1, real: 2, technology: 3 }
 
   before_save :check_type
 
